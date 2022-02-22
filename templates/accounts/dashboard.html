@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>my trees planted ({{planted_trees.count}})</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tree</th>
+      <th scope="col">By</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for planted in planted_trees %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td><a href="{% url 'view-tree' pk=planted.pk%}">{{planted.tree}}</a></td>
+      <td>{{planted.user.username}}</td>
+      <td>{{planted.get_age}}</td>
+    </tr>
+      {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

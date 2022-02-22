@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{planted_tree.tree}}</h2>
+<ul>
+  <li>
+    <p>Age: {{planted_tree.get_age}}</p>
+  </li>
+  <li>
+    <p>Scientific name: {{planted_tree.tree.scientific_name}}</p>
+  </li>
+  <li>
+    <p>Geo Location:  {{planted_tree.point}}</p>
+  </li>
+</ul>
+{% endblock %}

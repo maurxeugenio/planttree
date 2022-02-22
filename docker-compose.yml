@@ -1,0 +1,26 @@
+version: "3.4"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: plant-tree
+    env_file:
+      - "./.env.dev"
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./.:/app
+    depends_on:
+      - db-tree
+  db-tree:
+    image: postgres:11.0-alpine
+    container_name: db-tree
+    environment:
+      POSTGRES_USER: "plant_tree"
+      POSTGRES_PASSWORD: "plant_tree"
+      POSTGRES_DB: "plant_tree"
+
+volumes:
+  postgres_data:
