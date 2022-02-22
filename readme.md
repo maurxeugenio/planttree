@@ -2,7 +2,9 @@
 
 Para subir o projeto rode:
 $ docker-compose build
+
 $ make migrate
+
 $ make createsuperuser  
 > (vai criar um usuário com e-mail: dev@plantree.com senha: dev123)
 
